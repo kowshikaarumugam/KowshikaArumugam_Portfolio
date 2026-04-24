@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kowshika Arumugam | DevOps & Cloud Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0a0f1e;
+  --deep: #0d1526;
+  --card: #111827;
+  --blue: #2563eb;
+  --cyan: #06b6d4;
+  --accent: #38bdf8;
+  --glow: rgba(37,99,235,0.35);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: rgba(99,179,237,0.12);
+  --grad: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.4;}
+body::after{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+section,nav,footer{position:relative;z-index:1;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 6%;background:rgba(10,15,30,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:22px;height:2px;background:var(--muted);border-radius:2px;}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 6% 4rem;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.18) 0%,transparent 70%);pointer-events:none;animation:pulse 6s ease-in-out infinite;}
+.hero-glow2{position:absolute;bottom:-80px;left:5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,0.12) 0%,transparent 70%);pointer-events:none;animation:pulse 8s ease-in-out infinite reverse;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.3);border-radius:100px;padding:0.4rem 1rem;font-size:0.8rem;color:var(--accent);font-weight:500;margin-bottom:1.5rem;width:fit-content;animation:fadeUp 0.6s ease both;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.05;letter-spacing:-2px;color:#fff;animation:fadeUp 0.7s 0.1s ease both;}
+.hero-name span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-role{font-size:clamp(0.9rem,2vw,1.15rem);color:var(--muted);font-weight:300;margin:1rem 0 1.5rem;animation:fadeUp 0.7s 0.2s ease both;}
+.hero-desc{max-width:600px;color:var(--muted);font-size:0.96rem;line-height:1.85;margin-bottom:2.5rem;animation:fadeUp 0.7s 0.3s ease both;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.4s ease both;}
+.btn-primary{padding:0.8rem 2rem;background:var(--grad);color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 20px rgba(37,99,235,0.4);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(37,99,235,0.6);}
+.btn-outline{padding:0.8rem 2rem;background:transparent;color:var(--accent);border:1px solid rgba(56,189,248,0.35);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;text-decoration:none;transition:background 0.2s;}
+.btn-outline:hover{background:rgba(56,189,248,0.08);}
+.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;animation:fadeUp 0.7s 0.5s ease both;flex-wrap:wrap;}
+.stat-val{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-label{font-size:0.77rem;color:var(--muted);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+section{padding:5rem 6%;}
+.section-tag{font-size:0.74rem;font-weight:600;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;margin-bottom:0.6rem;}
+.section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.4rem);color:#fff;letter-spacing:-1px;margin-bottom:2.5rem;}
+.section-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.about-text{color:var(--muted);font-size:0.95rem;line-height:1.9;}
+.about-text p{margin-bottom:1rem;}
+.about-highlights{display:flex;flex-direction:column;gap:0.9rem;}
+.highlight-item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.3s,transform 0.3s;}
+.highlight-item:hover{border-color:rgba(37,99,235,0.4);transform:translateX(4px);}
+.hi-icon{font-size:1.3rem;flex-shrink:0;}
+.hi-title{font-weight:600;color:#fff;font-size:0.88rem;margin-bottom:0.15rem;}
+.hi-sub{font-size:0.8rem;color:var(--muted);}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;}
+.skill-card:hover{border-color:rgba(37,99,235,0.5);transform:translateY(-4px);box-shadow:0 12px 40px rgba(37,99,235,0.15);}
+.skill-icon{font-size:1.7rem;margin-bottom:0.7rem;}
+.skill-cat{font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:var(--accent);margin-bottom:0.4rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.7rem;}
+.tag{font-size:0.74rem;padding:0.22rem 0.65rem;background:rgba(37,99,235,0.12);color:var(--muted);border:1px solid rgba(37,99,235,0.2);border-radius:100px;}
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--blue),var(--cyan),transparent);border-radius:2px;}
+.timeline-item{position:relative;margin-bottom:1.8rem;}
+.timeline-dot{position:absolute;left:-2.45rem;top:6px;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px var(--glow);}
+.timeline-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.7rem;transition:border-color 0.3s;}
+.timeline-card:hover{border-color:rgba(37,99,235,0.4);}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.4rem;}
+.tl-role{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff;}
+.tl-company{color:var(--cyan);font-size:0.86rem;font-weight:500;margin-bottom:0.5rem;}
+.tl-date{font-size:0.74rem;padding:0.2rem 0.75rem;background:rgba(6,182,212,0.1);color:var(--cyan);border:1px solid rgba(6,182,212,0.2);border-radius:100px;white-space:nowrap;}
+.tl-desc{color:var(--muted);font-size:0.87rem;line-height:1.75;}
+.tl-desc ul{padding-left:1.1rem;}
+.tl-desc li{margin-bottom:0.25rem;}
+/* PROJECT */
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;max-width:700px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
+.project-card::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.15) 0%,transparent 70%);pointer-events:none;}
+.project-card:hover{border-color:rgba(37,99,235,0.5);transform:translateY(-4px);box-shadow:0 16px 48px rgba(37,99,235,0.18);}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;}
+.proj-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;}
+.proj-link{display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--accent);text-decoration:none;border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:0.28rem 0.85rem;transition:background 0.2s;}
+.proj-link:hover{background:rgba(56,189,248,0.08);}
+.proj-desc{color:var(--muted);font-size:0.88rem;line-height:1.8;margin-bottom:1.1rem;}
+.proj-tech{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.proj-tag{font-size:0.75rem;padding:0.25rem 0.75rem;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);border-radius:100px;color:var(--accent);}
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:1.2rem 1.4rem;display:flex;align-items:flex-start;gap:0.9rem;transition:border-color 0.3s,transform 0.3s;}
+.cert-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-3px);}
+.cert-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;background:rgba(37,99,235,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.cert-name{font-weight:600;font-size:0.86rem;color:#fff;margin-bottom:0.18rem;}
+.cert-org{font-size:0.77rem;color:var(--cyan);}
+.cert-date{font-size:0.72rem;color:var(--muted);margin-top:0.18rem;}
+/* POSTS */
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.1rem;}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;gap:0.75rem;}
+.post-card:hover{border-color:rgba(37,99,235,0.45);transform:translateY(-4px);box-shadow:0 12px 36px rgba(37,99,235,0.14);}
+.post-header{display:flex;align-items:center;gap:0.8rem;}
+.post-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;color:#fff;flex-shrink:0;}
+.post-meta-name{font-weight:600;font-size:0.86rem;color:#fff;}
+.post-meta-sub{font-size:0.73rem;color:var(--muted);}
+.post-badge{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.71rem;padding:0.18rem 0.65rem;border-radius:100px;font-weight:600;width:fit-content;}
+.badge-event{background:rgba(37,99,235,0.12);color:#60a5fa;border:1px solid rgba(37,99,235,0.25);}
+.badge-intern{background:rgba(16,185,129,0.12);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
+.badge-cert{background:rgba(245,158,11,0.12);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);}
+.badge-hack{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);}
+.badge-workshop{background:rgba(139,92,246,0.12);color:#a78bfa;border:1px solid rgba(139,92,246,0.25);}
+.post-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:#fff;line-height:1.35;}
+.post-body{font-size:0.84rem;color:var(--muted);line-height:1.75;flex:1;}
+.post-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.post-tag{font-size:0.69rem;padding:0.16rem 0.5rem;background:rgba(37,99,235,0.08);color:var(--accent);border:1px solid rgba(37,99,235,0.15);border-radius:100px;}
+/* EDU */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.1rem;}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:border-color 0.3s,transform 0.3s;}
+.edu-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-3px);}
+.edu-degree{font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:#fff;margin-bottom:0.3rem;}
+.edu-school{font-size:0.85rem;color:var(--cyan);margin-bottom:0.3rem;}
+.edu-meta{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.6rem;}
+.edu-badge{font-size:0.73rem;padding:0.2rem 0.65rem;background:rgba(37,99,235,0.1);color:var(--accent);border:1px solid rgba(37,99,235,0.2);border-radius:100px;}
+/* ACH */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+.ach-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:1.3rem 1.5rem;display:flex;gap:0.9rem;align-items:flex-start;transition:border-color 0.3s,transform 0.3s;}
+.ach-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-3px);}
+.ach-icon{font-size:1.5rem;flex-shrink:0;}
+.ach-title{font-weight:600;color:#fff;font-size:0.88rem;margin-bottom:0.18rem;}
+.ach-text{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+/* CONTACT */
+#contact{text-align:center;background:radial-gradient(ellipse at center top,rgba(37,99,235,0.12) 0%,transparent 60%),var(--navy);}
+.contact-sub{color:var(--muted);max-width:480px;margin:0 auto 2.5rem;font-size:0.96rem;}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+.contact-link{display:flex;align-items:center;gap:0.6rem;padding:0.75rem 1.4rem;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--text);text-decoration:none;font-size:0.87rem;font-weight:500;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;}
+.contact-link:hover{border-color:rgba(37,99,235,0.5);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.15);}
+footer{text-align:center;padding:2rem 6%;border-top:1px solid var(--border);color:var(--muted);font-size:0.81rem;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,15,30,0.98);flex-direction:column;padding:1.5rem 6%;gap:1.2rem;border-bottom:1px solid var(--border);}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+  .about-grid{grid-template-columns:1fr;}
+  #hero{padding:7rem 4% 3rem;}
+  section{padding:4rem 4%;}
+  .hero-stats{gap:2rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">KA.</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+    <li><a href="#experience" onclick="closeNav()">Experience</a></li>
+    <li><a href="#project" onclick="closeNav()">Project</a></li>
+    <li><a href="#activities" onclick="closeNav()">Activities</a></li>
+    <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-badge"><span class="badge-dot"></span> Open to DevOps &amp; Cloud Opportunities</div>
+  <h1 class="hero-name">Kowshika<br/><span>Arumugam</span></h1>
+  <p class="hero-role">B.Tech IT Student &nbsp;·&nbsp; DevOps Enthusiast &nbsp;·&nbsp; Cloud Explorer &nbsp;·&nbsp; IEEE Member</p>
+  <p class="hero-desc">Passionate about leveraging technology for real-world impact. Building hands-on DevOps skills through Docker, GitHub Actions, and Linux. Innovation project winner. Active leader, event coordinator, and newsletter designer.</p>
+  <div class="hero-btns">
+    <a href="#project" class="btn-primary">View My Project</a>
+    <a href="#contact" class="btn-outline">Get In Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">8.80</div><div class="stat-label">CGPA</div></div>
+    <div><div class="stat-val">84%</div><div class="stat-label">NPTEL Java</div></div>
+    <div><div class="stat-val">1st</div><div class="stat-label">Prize Winner</div></div>
+    <div><div class="stat-val">Top 500</div><div class="stat-label">Naan Mudhalvan</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--deep);">
+  <div class="section-tag">Who I Am</div>
+  <h2 class="section-title">About <span>Me</span></h2>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>I'm a passionate B.Tech Information Technology student at JJ College of Engineering and Technology, deeply committed to building my future as a <strong style="color:#fff;">DevOps Engineer</strong>. I actively practise Linux, Git, Docker, CI/CD concepts, and automation workflows through real projects.</p>
+      <p>I believe in <strong style="color:#fff;">practical execution, consistency, and real-time problem solving</strong> rather than only theoretical learning. I also develop digital communication skills to strengthen professional visibility and knowledge sharing.</p>
+      <p>Known for discipline, adaptability, and a continuous learning mindset — I value integrity, accountability, and teamwork. Always eager to learn, build, and contribute to impactful tech environments.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-item"><div class="hi-icon">⚡</div><div><div class="hi-title">IEEE Member</div><div class="hi-sub">Department of IT, JJCET</div></div></div>
+      <div class="highlight-item"><div class="hi-icon">📰</div><div><div class="hi-title">Newsletter Designer</div><div class="hi-sub">Designing &amp; publishing the department newsletter</div></div></div>
+      <div class="highlight-item"><div class="hi-icon">🎤</div><div><div class="hi-title">Event Coordinator</div><div class="hi-sub">SPIRIT 2K26 — National Level Technical Symposium</div></div></div>
+      <div class="highlight-item"><div class="hi-icon">🎓</div><div><div class="hi-title">Class Representative</div><div class="hi-sub">School &amp; College level leadership</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">What I Know</div>
+  <h2 class="section-title">Technical <span>Skills</span></h2>
+  <div class="skills-grid reveal">
+    <div class="skill-card"><div class="skill-icon">⚙️</div><div class="skill-cat">DevOps</div><p style="color:var(--muted);font-size:0.85rem;">Containerization, CI/CD automation and version control.</p><div class="skill-tags"><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Git &amp; GitHub</span><span class="tag">Linux CLI</span></div></div>
+    <div class="skill-card"><div class="skill-icon">☁️</div><div class="skill-cat">Cloud &amp; Infrastructure</div><p style="color:var(--muted);font-size:0.85rem;">Cloud fundamentals and infrastructure concepts.</p><div class="skill-tags"><span class="tag">AWS Basics</span><span class="tag">Cloud Computing</span><span class="tag">IoT</span></div></div>
+    <div class="skill-card"><div class="skill-icon">💻</div><div class="skill-cat">Programming</div><p style="color:var(--muted);font-size:0.85rem;">Core languages for development and web interfaces.</p><div class="skill-tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">HTML</span><span class="tag">CSS</span></div></div>
+    <div class="skill-card"><div class="skill-icon">🛠️</div><div class="skill-cat">Tools &amp; Databases</div><p style="color:var(--muted);font-size:0.85rem;">Development tools and database fundamentals.</p><div class="skill-tags"><span class="tag">VS Code</span><span class="tag">GitHub</span><span class="tag">MySQL</span><span class="tag">DBMS</span></div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--deep);">
+  <div class="section-tag">Work Experience</div>
+  <h2 class="section-title">Internship <span>Experience</span></h2>
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-header"><div><div class="tl-role">Cloud Computing Intern</div><div class="tl-company">TechnoHacks Solutions Pvt. Ltd.</div></div><span class="tl-date">2025</span></div>
+        <div class="tl-desc">Received an internship offer in Cloud Computing, gaining hands-on experience in cloud technologies and learning from industry professionals.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-header"><div><div class="tl-role">Java Intern — Linear Data Structures</div><div class="tl-company">iGenuine Soft Solutions Pvt. Ltd.</div></div><span class="tl-date">2025</span></div>
+        <div class="tl-desc"><ul><li>Gained hands-on experience in core Java with linear data structures — arrays, stacks, queues, and linked lists.</li><li>Strengthened coding logic, problem-solving skills, and understanding of how data structures apply in real development.</li></ul></div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="tl-header"><div><div class="tl-role">Java Intern</div><div class="tl-company">Cognifyz Technologies · Online Platform</div></div><span class="tl-date">Dec 2025 – Jan 2026</span></div>
+        <div class="tl-desc"><ul><li>Completed Java programming tasks covering OOP, data structures, and basic algorithms.</li><li>Practised writing and debugging Java programs through structured assignments.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="section-tag">What I Built</div>
+  <h2 class="section-title">Featured <span>Project</span></h2>
+  <div class="project-card reveal">
+    <div class="proj-top">
+      <div class="proj-title">DevOps Portfolio Website</div>
+      <a href="https://github.com/kowshikaarumugam/devops_portfolio" target="_blank" class="proj-link">↗ GitHub</a>
+    </div>
+    <p class="proj-desc">A personal portfolio website built with HTML, CSS, and Python, fully containerized using Docker. Features an automated CI/CD pipeline with GitHub Actions that builds and validates the project on every code push. Managed complete version control and deployment workflow using Git &amp; GitHub on a Linux environment.</p>
+    <div class="proj-tech">
+      <span class="proj-tag">Docker</span><span class="proj-tag">GitHub Actions</span><span class="proj-tag">CI/CD</span>
+      <span class="proj-tag">HTML &amp; CSS</span><span class="proj-tag">Python</span><span class="proj-tag">Linux</span><span class="proj-tag">Git</span>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" style="background:var(--deep);">
+  <div class="section-tag">Learning &amp; Growth</div>
+  <h2 class="section-title">Certifications <span>&amp; Workshops</span></h2>
+  <div class="cert-grid reveal">
+    <div class="cert-card"><div class="cert-icon">☕</div><div><div class="cert-name">Programming in Java</div><div class="cert-org">NPTEL · IIT / SWAYAM</div><div class="cert-date">Jul – Oct 2025 · Score: 84%</div></div></div>
+    <div class="cert-card"><div class="cert-icon">📜</div><div><div class="cert-name">JavaScript Fundamentals</div><div class="cert-org">Udemy</div><div class="cert-date">Oct 2025</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">HTML Training</div><div class="cert-org">Spoken Tutorial · IIT Bombay</div><div class="cert-date">Jan 2025</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-name">AI 30-Day Masterclass</div><div class="cert-org">Artificial Intelligence</div><div class="cert-date">2025</div></div></div>
+    <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">Cloud Data Engineer Workshop</div><div class="cert-org">Codetalon</div><div class="cert-date">2025</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🎨</div><div><div class="cert-name">Design for Impact: Power of UX</div><div class="cert-org">REACH'25 · CEG Anna University</div><div class="cert-date">2025</div></div></div>
+  </div>
+</section>
+
+<!-- LINKEDIN ACTIVITIES -->
+<section id="activities">
+  <div class="section-tag">LinkedIn Highlights</div>
+  <h2 class="section-title">Activities <span>&amp; Posts</span></h2>
+  <div class="posts-grid reveal">
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-event">🎤 Event Coordination</span>
+      <div class="post-title">Coordinated "Stress Interview" at SPIRIT 2K26</div>
+      <div class="post-body">Coordinated the Stress Interview event at SPIRIT 2K26 — National Level Technical Symposium by the IT Dept, JJCET. Managed two challenging rounds testing confidence, creativity, and communication under pressure. Selected Top 3 performers and awarded prizes.</div>
+      <div class="post-tags"><span class="post-tag">#SPIRIT2K26</span><span class="post-tag">#Leadership</span><span class="post-tag">#EventCoordination</span></div>
+    </div>
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-intern">💻 Internship</span>
+      <div class="post-title">Completed Java + Linear Data Structures Internship</div>
+      <div class="post-body">Successfully completed a 30-day Internship in Java with Linear Data Structures at iGenuine Soft Solutions Pvt. Ltd. Gained hands-on experience with arrays, stacks, queues, and linked lists applied in real development scenarios.</div>
+      <div class="post-tags"><span class="post-tag">#Java</span><span class="post-tag">#DataStructures</span><span class="post-tag">#iGenuine</span></div>
+    </div>
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-cert">☁️ Workshop</span>
+      <div class="post-title">Cloud Data Engineer Workshop — Codetalon</div>
+      <div class="post-body">Completed a Cloud Data Engineer Workshop by Codetalon, gaining clarity on data pipelines, scalable data systems, and the cloud engineering mindset. Grateful for practical insights from Founder &amp; Lead Trainer Dixit Saravithyan R S.</div>
+      <div class="post-tags"><span class="post-tag">#CloudEngineering</span><span class="post-tag">#DataPipelines</span><span class="post-tag">#Codetalon</span></div>
+    </div>
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-intern">☁️ Internship Offer</span>
+      <div class="post-title">Cloud Computing Internship — TechnoHacks Solutions</div>
+      <div class="post-body">Thrilled to receive a Cloud Computing internship offer from TechnoHacks Solutions Pvt. Ltd. — an important step in gaining real-world experience in cloud technologies and building my career in IT.</div>
+      <div class="post-tags"><span class="post-tag">#CloudComputing</span><span class="post-tag">#TechnoHacks</span><span class="post-tag">#JJCET</span></div>
+    </div>
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-workshop">🎨 Workshop</span>
+      <div class="post-title">UX Design Workshop — REACH'25 × CEG Anna University</div>
+      <div class="post-body">Participated in "Design for Impact: Power of UX" at REACH'25, JJCET in collaboration with College of Engineering Guindy, Anna University. Gained insights into UX Design, designing with purpose, and user-centric thinking.</div>
+      <div class="post-tags"><span class="post-tag">#UXDesign</span><span class="post-tag">#REACH25</span><span class="post-tag">#DesignThinking</span></div>
+    </div>
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-hack">🏆 Hackathon</span>
+      <div class="post-title">Selected for Finals — Smart Innovators Hackathon</div>
+      <div class="post-body">Out of 300 participating teams, only 80 were selected for the Smart Innovators Hackathon finals. Proud that our team made it to the finals (8–9 Nov 2024) in collaboration with T-Hub and JJCET, giving our very best.</div>
+      <div class="post-tags"><span class="post-tag">#Hackathon</span><span class="post-tag">#Innovation</span><span class="post-tag">#T-Hub</span></div>
+    </div>
+    <div class="post-card">
+      <div class="post-header"><div class="post-avatar">KA</div><div><div class="post-meta-name">Kowshika Arumugam</div><div class="post-meta-sub">B.Tech IT · JJCET</div></div></div>
+      <span class="post-badge badge-hack">🚁 Innovation</span>
+      <div class="post-title">SIH Round-2 — Disaster Response Drone System</div>
+      <div class="post-body">Completed SIH Round-2 with a Disaster Response Drone System — delivering supplies to disaster zones, detecting emergencies via SOS signals and thermal sensing, and sending real-time alerts via mobile app. Received valuable feedback from jury Mr. Manoj Jeevagan, CEO of Inymart Digi Solutions.</div>
+      <div class="post-tags"><span class="post-tag">#SIH2025</span><span class="post-tag">#Drones</span><span class="post-tag">#IoT</span><span class="post-tag">#Innovation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--deep);">
+  <div class="section-tag">Academic Background</div>
+  <h2 class="section-title">Education <span>Background</span></h2>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-degree">B.Tech – Information Technology</div>
+      <div class="edu-school">JJ College of Engineering and Technology · Anna University</div>
+      <div style="color:var(--muted);font-size:0.81rem;margin-top:0.35rem;">Full Stack · AI &amp; ML · Cloud Computing · IoT · DBMS · Data Structures · Big Data Analytics</div>
+      <div class="edu-meta"><span class="edu-badge">2023 – 2027</span><span class="edu-badge">CGPA: 8.80</span></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Grade 12</div>
+      <div class="edu-school">Government Girls Hr. Sec. School</div>
+      <div class="edu-meta"><span class="edu-badge">Jun 2022 – May 2023</span><span class="edu-badge">75%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-tag">Recognition</div>
+  <h2 class="section-title">Achievements <span>&amp; Activities</span></h2>
+  <div class="ach-grid reveal">
+    <div class="ach-card"><div class="ach-icon">🏆</div><div><div class="ach-title">1st Prize — Theatre Piracy Prevention</div><div class="ach-text">Intercollegiate competition at Sudharshan Engineering College. LED &amp; IR-based innovation.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">🔬</div><div><div class="ach-title">Top 500 — Niral Thiruvila 3.0</div><div class="ach-text">Shortlisted in Naan Mudhalvan statewide innovation challenge.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">🚁</div><div><div class="ach-title">SIH Round-2 Participant</div><div class="ach-text">Built a Disaster Response Drone System for Smart India Hackathon.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">💡</div><div><div class="ach-title">Hackathon Finalist — Top 80 of 300</div><div class="ach-text">Selected for finals of Smart Innovators Hackathon with T-Hub, JJCET.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">⚡</div><div><div class="ach-title">IEEE Member</div><div class="ach-text">Active IEEE member, Department of IT, JJCET.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">📰</div><div><div class="ach-title">Newsletter Designer</div><div class="ach-text">Designs and publishes the department newsletter.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">🎤</div><div><div class="ach-title">Event Coordinator — SPIRIT 2K26</div><div class="ach-text">Coordinated the Stress Interview at National Level Technical Symposium.</div></div></div>
+    <div class="ach-card"><div class="ach-icon">🎓</div><div><div class="ach-title">Class Representative</div><div class="ach-text">School &amp; College level — bridging students and faculty.</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Let's Connect</div>
+  <h2 class="section-title" style="margin-bottom:1rem;">Get In <span>Touch</span></h2>
+  <p class="contact-sub">Actively looking for DevOps and Cloud opportunities. Feel free to reach out!</p>
+  <div class="contact-links reveal">
+    <a href="mailto:kowshikaarumugam2005@gmail.com" class="contact-link"><span>✉️</span> Email Me</a>
+    <a href="https://linkedin.com/in/kowshika-arumugam-510680292" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
+    <a href="https://github.com/kowshikaarumugam" target="_blank" class="contact-link"><span>🐙</span> GitHub</a>
+    <a href="tel:+917092422281" class="contact-link"><span>📞</span> +91 70924 22281</a>
+  </div>
+</section>
+
+<footer>
+  <p>Designed &amp; built by <strong style="color:var(--accent)">Kowshika Arumugam</strong> &nbsp;·&nbsp; 2025</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+  function closeNav() { document.getElementById('navLinks').classList.remove('open'); }
+</script>
+</body>
+</html>
